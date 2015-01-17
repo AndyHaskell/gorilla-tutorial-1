@@ -10,7 +10,7 @@ func serveHelloWorld(w http.ResponseWriter, r *http.Request){
 }
 
 func main(){
-    router := initRouter()
-    http.Handle("/", router)
-    http.ListenAndServe(":1123", nil)
+	router := initRouter()
+	http.Handle("/", router)
+	http.ListenAndServe(":1123", nil)
 }
