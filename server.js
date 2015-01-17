@@ -30,7 +30,7 @@ app.use(/\/(coffee)+/, function(req, res){
 app.get('/coffee-shop', function(req, res){
   res.send('<form action="/order" method="POST">'+
              'Your name <input type="text" name="name" /><br/ >'+
-             'Your favorite beverage <input type="text" name="beverage" /><br/ >'+
+             'Your beverage order <input type="text" name="beverage" /><br/ >'+
              '<input type="submit" value="Submit"/>'+
            '</form>');
 });
