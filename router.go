@@ -1,12 +1,12 @@
 package main
 
 import(
-    "net/http"
-    "fmt"
+	"net/http"
+	"fmt"
 	"log"
 	"html"
 
-    "github.com/gorilla/mux"
+	"github.com/gorilla/mux"
 )
 
 func initRouter() *mux.Router{
@@ -55,7 +55,7 @@ func initRouter() *mux.Router{
 		fmt.Fprintf(w, html)
 	}).Methods("POST")
 
-    r.PathPrefix("/").HandlerFunc(serveHelloWorld)
+	r.PathPrefix("/").HandlerFunc(serveHelloWorld)
 
-    return r
+	return r
 }
