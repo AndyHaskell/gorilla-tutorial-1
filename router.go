@@ -10,15 +10,15 @@ import(
 )
 
 func initRouter() *mux.Router{
-    r := mux.NewRouter()
+	r := mux.NewRouter()
 
-    r.HandleFunc("/sloths", func(w http.ResponseWriter, r *http.Request){
-        fmt.Fprintf(w, "Sloths rule!")
-    })
+	r.HandleFunc("/sloths", func(w http.ResponseWriter, r *http.Request){
+		fmt.Fprintf(w, "Sloths rule!")
+	})
 
-    r.PathPrefix("/images/").Handler(http.StripPrefix("/images/",
-                                       http.FileServer(
-                                         http.Dir("public/images"))))
+	r.PathPrefix("/images/").Handler(http.StripPrefix("/images/",
+					   http.FileServer(
+					     http.Dir("public/images"))))
 
 	r.HandleFunc("/tea/{flavor}", func(w http.ResponseWriter, r *http.Request){
 		params := mux.Vars(r)
@@ -36,9 +36,9 @@ func initRouter() *mux.Router{
 
 	r.HandleFunc("/coffee-shop", func(w http.ResponseWriter, r *http.Request){
 		html := `<body><form action="order" method="POST">`+
-			`Your name <input type="text" name="name"><br />`+
-			`Your beverage order <input type="text" name="beverage"><br />`+
-			`<input type="submit" value="Submit">`+
+			  `Your name <input type="text" name="name"><br />`+
+			  `Your beverage order <input type="text" name="beverage"><br />`+
+			  `<input type="submit" value="Submit">`+
 			`</form></body>`
 		fmt.Fprintf(w, html)
 	}).Methods("GET")
